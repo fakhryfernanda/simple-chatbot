@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+import os
+
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -6,7 +9,8 @@ from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain_community.chat_models import ChatOpenAI
 
-OPENAI_API_KEY = ""
+load_dotenv()
+OPENAI_API_KEY = os.getenv("API_KEY")
 
 # Upload PDF files
 st.header("My First chatbot")
